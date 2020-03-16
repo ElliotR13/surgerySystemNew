@@ -38,23 +38,24 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(295, 244);
+            this.btnLogin.Location = new System.Drawing.Point(199, 261);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(188, 71);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(305, 91);
+            this.txtUser.Location = new System.Drawing.Point(213, 91);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(164, 22);
             this.txtUser.TabIndex = 1;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(305, 167);
+            this.txtPass.Location = new System.Drawing.Point(213, 167);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(164, 22);
             this.txtPass.TabIndex = 2;
@@ -62,7 +63,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(168, 91);
+            this.lblUser.Location = new System.Drawing.Point(76, 91);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(77, 17);
             this.lblUser.TabIndex = 3;
@@ -71,7 +72,7 @@
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(172, 172);
+            this.lblPass.Location = new System.Drawing.Point(80, 172);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(73, 17);
             this.lblPass.TabIndex = 4;
@@ -81,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(509, 450);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.txtPass);

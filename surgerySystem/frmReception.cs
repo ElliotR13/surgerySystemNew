@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace surgerySystem
 {
-    public partial class frmLogin : Form
+    public partial class frmReception : Form
     {
-        public frmLogin()
+        public frmReception()
         {
             InitializeComponent();
         }
