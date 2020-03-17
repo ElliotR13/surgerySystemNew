@@ -40,22 +40,25 @@
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.cmbTime = new System.Windows.Forms.ComboBox();
             this.cmbDocID = new System.Windows.Forms.ComboBox();
+            this.tblDoctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.surgeryDBDataSet = new surgerySystem.surgeryDBDataSet();
             this.cmbPatID = new System.Windows.Forms.ComboBox();
+            this.tblPatientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.surgeryDBDataSet1 = new surgerySystem.surgeryDBDataSet1();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.surgeryDBDataSet = new surgerySystem.surgeryDBDataSet();
-            this.tblDoctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblDoctorTableAdapter = new surgerySystem.surgeryDBDataSetTableAdapters.tblDoctorTableAdapter();
-            this.surgeryDBDataSet1 = new surgerySystem.surgeryDBDataSet1();
-            this.tblPatientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblPatientTableAdapter = new surgerySystem.surgeryDBDataSet1TableAdapters.tblPatientTableAdapter();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAppID = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet)).BeginInit();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnArrival = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblDoctorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPatientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLast
@@ -183,6 +186,16 @@
             this.cmbDocID.Size = new System.Drawing.Size(131, 36);
             this.cmbDocID.TabIndex = 54;
             // 
+            // tblDoctorBindingSource
+            // 
+            this.tblDoctorBindingSource.DataMember = "tblDoctor";
+            this.tblDoctorBindingSource.DataSource = this.surgeryDBDataSet;
+            // 
+            // surgeryDBDataSet
+            // 
+            this.surgeryDBDataSet.DataSetName = "surgeryDBDataSet";
+            this.surgeryDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cmbPatID
             // 
             this.cmbPatID.DataSource = this.tblPatientBindingSource;
@@ -193,6 +206,16 @@
             this.cmbPatID.Name = "cmbPatID";
             this.cmbPatID.Size = new System.Drawing.Size(131, 36);
             this.cmbPatID.TabIndex = 55;
+            // 
+            // tblPatientBindingSource
+            // 
+            this.tblPatientBindingSource.DataMember = "tblPatient";
+            this.tblPatientBindingSource.DataSource = this.surgeryDBDataSet1;
+            // 
+            // surgeryDBDataSet1
+            // 
+            this.surgeryDBDataSet1.DataSetName = "surgeryDBDataSet1";
+            this.surgeryDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnSave
             // 
@@ -217,29 +240,9 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // surgeryDBDataSet
-            // 
-            this.surgeryDBDataSet.DataSetName = "surgeryDBDataSet";
-            this.surgeryDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblDoctorBindingSource
-            // 
-            this.tblDoctorBindingSource.DataMember = "tblDoctor";
-            this.tblDoctorBindingSource.DataSource = this.surgeryDBDataSet;
-            // 
             // tblDoctorTableAdapter
             // 
             this.tblDoctorTableAdapter.ClearBeforeFill = true;
-            // 
-            // surgeryDBDataSet1
-            // 
-            this.surgeryDBDataSet1.DataSetName = "surgeryDBDataSet1";
-            this.surgeryDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblPatientBindingSource
-            // 
-            this.tblPatientBindingSource.DataMember = "tblPatient";
-            this.tblPatientBindingSource.DataSource = this.surgeryDBDataSet1;
             // 
             // tblPatientTableAdapter
             // 
@@ -276,11 +279,47 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(718, 264);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(127, 56);
+            this.btnDelete.TabIndex = 61;
+            this.btnDelete.Text = "Delete Record";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnArrival
+            // 
+            this.btnArrival.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArrival.Location = new System.Drawing.Point(718, 160);
+            this.btnArrival.Name = "btnArrival";
+            this.btnArrival.Size = new System.Drawing.Size(127, 56);
+            this.btnArrival.TabIndex = 62;
+            this.btnArrival.Text = "Register Arrival";
+            this.btnArrival.UseVisualStyleBackColor = true;
+            this.btnArrival.Click += new System.EventHandler(this.btnArrival_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(865, 489);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(127, 56);
+            this.btnBack.TabIndex = 63;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 557);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnArrival);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtAppID);
             this.Controls.Add(this.label5);
@@ -301,10 +340,10 @@
             this.Name = "frmAppointment";
             this.Text = "frmAppointment";
             this.Load += new System.EventHandler(this.frmAppointment_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblDoctorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPatientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +373,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtAppID;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnArrival;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -12,13 +12,13 @@ using System.Configuration;
 
 namespace surgerySystem
 {
-    public partial class frmAppointment : Form
+    public partial class frmConsult : Form
     {
         DataSet dsDatabase;
         System.Data.SqlClient.SqlDataAdapter daGetData;
         public int whichRec = 0;
         public int countRec = 0;
-        public frmAppointment()
+        public frmConsult()
         {
             InitializeComponent();
         }
@@ -34,13 +34,8 @@ namespace surgerySystem
             cmbTime.Text = OneRecord[4].ToString();
         }
 
-        private void frmAppointment_Load(object sender, EventArgs e)
+        private void frmConsult_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'surgeryDBDataSet1.tblPatient' table. You can move, or remove it, as needed.
-            this.tblPatientTableAdapter.Fill(this.surgeryDBDataSet1.tblPatient);
-            // TODO: This line of code loads data into the 'surgeryDBDataSet.tblDoctor' table. You can move, or remove it, as needed.
-            this.tblDoctorTableAdapter.Fill(this.surgeryDBDataSet.tblDoctor);
-
             string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
             SqlConnection mySQLCon = new SqlConnection(myCon);
             mySQLCon.Open();
@@ -62,9 +57,6 @@ namespace surgerySystem
         {
             whichRec = 0;
             MoveRecords();//Populates textboxes with data from first row
-
-            btnUpdate.Enabled = true;
-            btnSave.Enabled = false;
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -73,9 +65,6 @@ namespace surgerySystem
             {
                 whichRec--;//Subtracts one from whichRec
                 MoveRecords();//Populates textboxes with data from previous row
-
-                btnUpdate.Enabled = true;
-                btnSave.Enabled = false;
             }
         }
 
@@ -85,9 +74,6 @@ namespace surgerySystem
             {
                 whichRec++;//Add one to whichRec
                 MoveRecords();//Populates textboxes with data from next row
-
-                btnUpdate.Enabled = true;
-                btnSave.Enabled = false;
             }
         }
 
@@ -97,70 +83,7 @@ namespace surgerySystem
             {
                 whichRec = countRec - 1;//Go to last record
                 MoveRecords();//Populates textboxes with data from last row
-
-                btnUpdate.Enabled = true;
-                btnSave.Enabled = false;
             }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            btnUpdate.Enabled = false;
-            btnSave.Enabled = true;
-
-            txtAppID.Clear();
-            cmbDocID.ResetText();
-            cmbPatID.ResetText();
-            cmbTime.ResetText();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (cmbDocID.Text == "" || cmbPatID.Text == "" || cmbTime.Text == "")
-            {
-                MessageBox.Show("Please ensure all fields are filled in before saving");//Prevents user from saving blank data
-            }
-            else
-            {
-                DataRow OneRecord = dsDatabase.Tables["tblAppointment"].NewRow();
-
-                OneRecord[1] = cmbDocID.Text;//Adds new record, saves data using data from textboxes
-                OneRecord[2] = cmbPatID.Text;
-                OneRecord[3] = dtpDate.Text;
-                OneRecord[4] = cmbTime.Text;
-                OneRecord[5] = "False";
-
-                dsDatabase.Tables["tblAppointment"].Rows.Add(OneRecord);
-
-                System.Data.SqlClient.SqlCommandBuilder myUpdateDB;
-                myUpdateDB = new System.Data.SqlClient.SqlCommandBuilder(daGetData);
-                myUpdateDB.DataAdapter.Update(dsDatabase.Tables["tblAppointment"]);
-
-                MoveRecords();
-
-                cmbDocID.ResetText();
-                cmbPatID.ResetText();
-                cmbTime.ResetText();
-
-                MessageBox.Show("Appointment Added");
-
-                btnSave.Enabled = false;
-                btnUpdate.Enabled = true;
-            }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
-            SqlConnection mySQLCon = new SqlConnection(myCon);
-            mySQLCon.Open();
-
-            SqlCommand cmUpdate = new SqlCommand();
-            cmUpdate.Connection = mySQLCon;
-            cmUpdate.CommandType = CommandType.Text;
-            cmUpdate.CommandText = "Update tblAppointment set doctorID =' " + cmbDocID.Text + "', date = '" + dtpDate.Value.Date.ToString("yyyyMMdd") + "', time = '" + cmbTime.Text + "' where appointmentID = '" + txtAppID.Text + "'";
-            //Updates record in seat tables that corresponds to the button that was clicked
-            cmUpdate.ExecuteNonQuery();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -200,11 +123,28 @@ namespace surgerySystem
             MessageBox.Show("Patient registered as having arrived");
         }
 
+        private void btnNotes_Click(object sender, EventArgs e)
+        {
+            string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
+            SqlConnection mySQLCon = new SqlConnection(myCon);
+            mySQLCon.Open();
+
+            SqlCommand cmNotes = new SqlCommand();
+            cmNotes.Connection = mySQLCon;
+            cmNotes.CommandType = CommandType.Text;
+            cmNotes.CommandText = "Update tblPatient set notes = '" + txtNotes.Text + "' where patientID = '" + cmbPatID.Text + "'";
+
+            cmNotes.ExecuteNonQuery();
+
+            MessageBox.Show("Patient notes updated");
+            txtNotes.Clear();
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmReception rec = new frmReception();
-            rec.Show();
+            frmDoctor dr = new frmDoctor();
+            dr.Show();
         }
     }
 }

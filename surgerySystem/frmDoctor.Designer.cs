@@ -30,6 +30,7 @@
         {
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnDetails = new System.Windows.Forms.Button();
+            this.btnApps = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -45,7 +46,7 @@
             // btnDetails
             // 
             this.btnDetails.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetails.Location = new System.Drawing.Point(125, 86);
+            this.btnDetails.Location = new System.Drawing.Point(47, 60);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(157, 58);
             this.btnDetails.TabIndex = 18;
@@ -53,11 +54,22 @@
             this.btnDetails.UseVisualStyleBackColor = true;
             this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
+            // btnApps
+            // 
+            this.btnApps.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApps.Location = new System.Drawing.Point(282, 60);
+            this.btnApps.Name = "btnApps";
+            this.btnApps.Size = new System.Drawing.Size(157, 58);
+            this.btnApps.TabIndex = 19;
+            this.btnApps.Text = "Appointments";
+            this.btnApps.UseVisualStyleBackColor = true;
+            // 
             // frmDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnApps);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.btnLogout);
             this.Name = "frmDoctor";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnDetails;
+        private System.Windows.Forms.Button btnApps;
     }
 }
