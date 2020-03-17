@@ -68,6 +68,7 @@ namespace surgerySystem
                 OneRecord[4] = txtPCode.Text;
                 OneRecord[5] = txtPhone.Text;
                 OneRecord[6] = txtDOB.Text;
+                OneRecord[7] = txtNotes.Text;
 
                 dsDatabase.Tables["tblPatient"].Rows.Add(OneRecord);
 
@@ -76,7 +77,24 @@ namespace surgerySystem
                 myUpdateDB.DataAdapter.Update(dsDatabase.Tables["tblPatient"]);
 
                 MoveRecords();
+
+                txtFirst.Clear();
+                txtSurname.Clear();
+                txtAddress.Clear();
+                txtPCode.Clear();
+                txtPhone.Clear();
+                txtDOB.Clear();
+                txtNotes.Clear();
+
+                MessageBox.Show("Patient Added");
             }
+        }
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDetails details = new frmDetails();
+            details.Show();
         }
     }
 }

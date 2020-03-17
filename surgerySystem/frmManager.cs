@@ -23,5 +23,12 @@ namespace surgerySystem
             frmLogin login = new frmLogin();
             login.Show();
         }
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDetails details = new frmDetails();
+            details.Show();
+        }
     }
 }
