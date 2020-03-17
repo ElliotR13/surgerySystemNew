@@ -18,6 +18,7 @@ namespace surgerySystem
         System.Data.SqlClient.SqlDataAdapter daGetData;
         public int whichRec = 0;
         public int countRec = 0;
+        DateTime date = new DateTime();
         public frmAppointment()
         {
             InitializeComponent();
@@ -116,10 +117,18 @@ namespace surgerySystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            date = dtpDate.Value;        
+
             if (cmbDocID.Text == "" || cmbPatID.Text == "" || cmbTime.Text == "")
             {
                 MessageBox.Show("Please ensure all fields are filled in before saving");//Prevents user from saving blank data
             }
+
+            else if (date.ToString("dddd") == "Saturday" || date.ToString("dddd") == "Sunday")
+            {
+                MessageBox.Show("Please select a day between Monday and Friday");
+            }
+
             else
             {
                 DataRow OneRecord = dsDatabase.Tables["tblAppointment"].NewRow();
@@ -151,16 +160,25 @@ namespace surgerySystem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
-            SqlConnection mySQLCon = new SqlConnection(myCon);
-            mySQLCon.Open();
+            date = dtpDate.Value;
 
-            SqlCommand cmUpdate = new SqlCommand();
-            cmUpdate.Connection = mySQLCon;
-            cmUpdate.CommandType = CommandType.Text;
-            cmUpdate.CommandText = "Update tblAppointment set doctorID =' " + cmbDocID.Text + "', date = '" + dtpDate.Value.Date.ToString("yyyyMMdd") + "', time = '" + cmbTime.Text + "' where appointmentID = '" + txtAppID.Text + "'";
-            //Updates record in seat tables that corresponds to the button that was clicked
-            cmUpdate.ExecuteNonQuery();
+            if (date.ToString("dddd") == "Saturday" || date.ToString("dddd") == "Sunday")
+            {
+                MessageBox.Show("Please select a day between Monday and Friday");
+            }
+            else
+            {
+                string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
+                SqlConnection mySQLCon = new SqlConnection(myCon);
+                mySQLCon.Open();
+
+                SqlCommand cmUpdate = new SqlCommand();
+                cmUpdate.Connection = mySQLCon;
+                cmUpdate.CommandType = CommandType.Text;
+                cmUpdate.CommandText = "Update tblAppointment set doctorID =' " + cmbDocID.Text + "', date = '" + dtpDate.Value.Date.ToString("yyyyMMdd") + "', time = '" + cmbTime.Text + "' where appointmentID = '" + txtAppID.Text + "'";
+                //Updates record in seat tables that corresponds to the button that was clicked
+                cmUpdate.ExecuteNonQuery();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

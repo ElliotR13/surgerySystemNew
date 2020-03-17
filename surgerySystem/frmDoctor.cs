@@ -24,11 +24,11 @@ namespace surgerySystem
             login.Show();
         }
 
-        private void btnDetails_Click(object sender, EventArgs e)
+        private void btnApps_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmDetails details = new frmDetails();
-            details.Show();
+            frmConsult con = new frmConsult();
+            con.Show();
         }
     }
 }
