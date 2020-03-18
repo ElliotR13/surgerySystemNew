@@ -92,7 +92,6 @@ namespace surgerySystem
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            this.Hide();
             frmDetails details = new frmDetails();
             details.Show();
         }
@@ -101,6 +100,12 @@ namespace surgerySystem
         {
             frmDocReport doc = new frmDocReport();
             doc.Show();
+        }
+
+        private void btnApp_Click(object sender, EventArgs e)
+        {
+            frmAppointment app = new frmAppointment();
+            app.Show();
         }
     }
 }

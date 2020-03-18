@@ -125,26 +125,37 @@ namespace surgerySystem
 
         private void btnNotes_Click(object sender, EventArgs e)
         {
-            string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
-            SqlConnection mySQLCon = new SqlConnection(myCon);
-            mySQLCon.Open();
+            if (txtNotes.Text == "")
+            {
+                MessageBox.Show("Please enter text before attempting to update");
+            }
+            else
+            {
+                string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
+                SqlConnection mySQLCon = new SqlConnection(myCon);
+                mySQLCon.Open();
 
-            SqlCommand cmNotes = new SqlCommand();
-            cmNotes.Connection = mySQLCon;
-            cmNotes.CommandType = CommandType.Text;
-            cmNotes.CommandText = "Update tblPatient set notes = '" + txtNotes.Text + "' where patientID = '" + cmbPatID.Text + "'";
+                SqlCommand cmNotes = new SqlCommand();
+                cmNotes.Connection = mySQLCon;
+                cmNotes.CommandType = CommandType.Text;
+                cmNotes.CommandText = "Update tblPatient set notes = '" + txtNotes.Text + "' where patientID = '" + cmbPatID.Text + "'";
 
-            cmNotes.ExecuteNonQuery();
+                cmNotes.ExecuteNonQuery();
 
-            MessageBox.Show("Patient notes updated");
-            txtNotes.Clear();
+                MessageBox.Show("Patient notes updated");
+                txtNotes.Clear();
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmDoctor dr = new frmDoctor();
-            dr.Show();
+            this.Close();
+        }
+
+        private void btnPresc_Click(object sender, EventArgs e)
+        {
+            frmPresc presc = new frmPresc();
+            presc.Show();
         }
     }
 }

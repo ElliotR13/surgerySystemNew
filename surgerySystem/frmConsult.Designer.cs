@@ -47,12 +47,13 @@
             this.btnNotes = new System.Windows.Forms.Button();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnPresc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnArrival
             // 
             this.btnArrival.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArrival.Location = new System.Drawing.Point(656, 168);
+            this.btnArrival.Location = new System.Drawing.Point(586, 51);
             this.btnArrival.Name = "btnArrival";
             this.btnArrival.Size = new System.Drawing.Size(127, 56);
             this.btnArrival.TabIndex = 74;
@@ -63,7 +64,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(656, 266);
+            this.btnDelete.Location = new System.Drawing.Point(586, 149);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(127, 56);
             this.btnDelete.TabIndex = 73;
@@ -257,11 +258,23 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnPresc
+            // 
+            this.btnPresc.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresc.Location = new System.Drawing.Point(748, 357);
+            this.btnPresc.Name = "btnPresc";
+            this.btnPresc.Size = new System.Drawing.Size(127, 56);
+            this.btnPresc.TabIndex = 82;
+            this.btnPresc.Text = "Create Prescription";
+            this.btnPresc.UseVisualStyleBackColor = true;
+            this.btnPresc.Click += new System.EventHandler(this.btnPresc_Click);
+            // 
             // frmConsult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 590);
+            this.Controls.Add(this.btnPresc);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.btnNotes);
@@ -310,5 +323,6 @@
         private System.Windows.Forms.Button btnNotes;
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnPresc;
     }
 }

@@ -21,22 +21,35 @@ namespace surgerySystem
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            DataSet dsApps = new DataSet();
+            if (cmbID.Text == "")
+            {
+                MessageBox.Show("Please select an ID");
+            }
 
-            string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
-            SqlConnection mySQLCon = new SqlConnection(myCon);
-            mySQLCon.Open();
+            else
+            {
+                DataSet dsApps = new DataSet();
 
-            SqlCommand cmApps = new SqlCommand();
-            cmApps.Connection = mySQLCon;
-            cmApps.CommandType = CommandType.Text;
-            cmApps.CommandText = "Select * from tblAppointment where doctorID = " + cmbID.Text;
-            SqlDataAdapter daApps = new SqlDataAdapter(cmApps);
+                string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
+                SqlConnection mySQLCon = new SqlConnection(myCon);
+                mySQLCon.Open();
 
-            daApps.Fill(dsApps);
-            mySQLCon.Close();
+                SqlCommand cmApps = new SqlCommand();
+                cmApps.Connection = mySQLCon;
+                cmApps.CommandType = CommandType.Text;
+                cmApps.CommandText = "Select * from tblAppointment where doctorID = " + cmbID.Text;
+                SqlDataAdapter daApps = new SqlDataAdapter(cmApps);
 
-            appointmentGrid.DataSource = dsApps.Tables[0];
+                daApps.Fill(dsApps);
+                mySQLCon.Close();
+
+                appointmentGrid.DataSource = dsApps.Tables[0];
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

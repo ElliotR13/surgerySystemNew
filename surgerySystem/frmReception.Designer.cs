@@ -203,6 +203,7 @@
             this.btnApp.TabIndex = 18;
             this.btnApp.Text = "Make Appointment";
             this.btnApp.UseVisualStyleBackColor = true;
+            this.btnApp.Click += new System.EventHandler(this.btnApp_Click);
             // 
             // label7
             // 

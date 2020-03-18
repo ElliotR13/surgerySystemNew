@@ -89,6 +89,12 @@
     <Compile Include="frmManager.Designer.cs">
       <DependentUpon>frmManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPresc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPresc.Designer.cs">
+      <DependentUpon>frmPresc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReception.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>surgeryDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="surgeryDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>surgeryDBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="surgeryDBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>surgeryDBDataSet3.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmAppointment.resx">
       <DependentUpon>frmAppointment.cs</DependentUpon>
@@ -127,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManager.resx">
       <DependentUpon>frmManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPresc.resx">
+      <DependentUpon>frmPresc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReception.resx">
       <DependentUpon>frmReception.cs</DependentUpon>
@@ -170,6 +189,28 @@
     </None>
     <None Include="surgeryDBDataSet1.xss">
       <DependentUpon>surgeryDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="surgeryDBDataSet2.xsc">
+      <DependentUpon>surgeryDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="surgeryDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>surgeryDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="surgeryDBDataSet2.xss">
+      <DependentUpon>surgeryDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="surgeryDBDataSet3.xsc">
+      <DependentUpon>surgeryDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="surgeryDBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>surgeryDBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="surgeryDBDataSet3.xss">
+      <DependentUpon>surgeryDBDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
