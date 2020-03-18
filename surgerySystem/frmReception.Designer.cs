@@ -46,6 +46,7 @@
             this.btnApp = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -196,7 +197,7 @@
             // btnApp
             // 
             this.btnApp.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApp.Location = new System.Drawing.Point(718, 142);
+            this.btnApp.Location = new System.Drawing.Point(718, 135);
             this.btnApp.Name = "btnApp";
             this.btnApp.Size = new System.Drawing.Size(157, 58);
             this.btnApp.TabIndex = 18;
@@ -223,11 +224,23 @@
             this.txtNotes.Size = new System.Drawing.Size(301, 109);
             this.txtNotes.TabIndex = 19;
             // 
+            // btnReport
+            // 
+            this.btnReport.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Location = new System.Drawing.Point(718, 222);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(157, 58);
+            this.btnReport.TabIndex = 21;
+            this.btnReport.Text = "Run Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // frmReception
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 550);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.btnApp);
@@ -274,5 +287,6 @@
         private System.Windows.Forms.Button btnApp;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.Button btnReport;
     }
 }

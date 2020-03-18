@@ -12,24 +12,11 @@ using System.Configuration;
 
 namespace surgerySystem
 {
-    public partial class frmManager : Form
+    public partial class frmDocReport : Form
     {
-        public frmManager()
+        public frmDocReport()
         {
             InitializeComponent();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmLogin login = new frmLogin();
-            login.Show();
-        }
-
-        private void btnDetails_Click(object sender, EventArgs e)
-        {
-            frmDetails det = new frmDetails();
-            det.Show();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -43,7 +30,7 @@ namespace surgerySystem
             SqlCommand cmApps = new SqlCommand();
             cmApps.Connection = mySQLCon;
             cmApps.CommandType = CommandType.Text;
-            cmApps.CommandText = "Select * from tblAppointment";
+            cmApps.CommandText = "Select * from tblAppointment where doctorID = " + cmbID.Text;
             SqlDataAdapter daApps = new SqlDataAdapter(cmApps);
 
             daApps.Fill(dsApps);

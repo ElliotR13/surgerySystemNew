@@ -48,6 +48,7 @@
             this.txtDOB = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -244,11 +245,23 @@
             this.txtNotes.Size = new System.Drawing.Size(301, 177);
             this.txtNotes.TabIndex = 35;
             // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(918, 535);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(127, 56);
+            this.btnClose.TabIndex = 37;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 603);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.txtDOB);
@@ -298,5 +311,6 @@
         private System.Windows.Forms.MaskedTextBox txtDOB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.Button btnClose;
     }
 }

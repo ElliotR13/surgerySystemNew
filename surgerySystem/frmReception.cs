@@ -96,5 +96,11 @@ namespace surgerySystem
             frmDetails details = new frmDetails();
             details.Show();
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmDocReport doc = new frmDocReport();
+            doc.Show();
+        }
     }
 }

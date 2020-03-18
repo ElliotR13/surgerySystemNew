@@ -88,5 +88,10 @@ namespace surgerySystem
                 MoveRecords();//Populates textboxes with data from last row
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

@@ -26,9 +26,14 @@ namespace surgerySystem
 
         private void btnApps_Click(object sender, EventArgs e)
         {
-            this.Hide();
             frmConsult con = new frmConsult();
             con.Show();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmDocReport doc = new frmDocReport();
+            doc.Show();
         }
     }
 }
