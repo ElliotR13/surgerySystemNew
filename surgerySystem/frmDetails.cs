@@ -27,7 +27,7 @@ namespace surgerySystem
         {
             string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
             SqlConnection mySQLCon = new SqlConnection(myCon);
-            mySQLCon.Open();
+            mySQLCon.Open();//Establish connection
 
             dsDatabase = new DataSet();
 

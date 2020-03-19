@@ -21,14 +21,14 @@ namespace surgerySystem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide();//Close this form and open login form
             frmLogin login = new frmLogin();
             login.Show();
         }
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            frmDetails det = new frmDetails();
+            frmDetails det = new frmDetails();//Open details form
             det.Show();
         }
 
@@ -45,7 +45,7 @@ namespace surgerySystem
             cmApps.CommandType = CommandType.Text;
             cmApps.CommandText = "Select * from tblAppointment";
             SqlDataAdapter daApps = new SqlDataAdapter(cmApps);
-
+            //Select all booked appointments
             daApps.Fill(dsApps);
             mySQLCon.Close();
 

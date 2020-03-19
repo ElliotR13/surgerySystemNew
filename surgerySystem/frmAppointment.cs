@@ -49,7 +49,7 @@ namespace surgerySystem
             dsDatabase = new DataSet();
 
             String sqlGetWhat;
-            sqlGetWhat = "SELECT * From tblAppointment";//Selects all records from Patient table
+            sqlGetWhat = "SELECT * From tblAppointment";//Selects all records from appointment table
 
             daGetData = new System.Data.SqlClient.SqlDataAdapter(sqlGetWhat, myCon);
 
@@ -109,7 +109,7 @@ namespace surgerySystem
             btnUpdate.Enabled = false;
             btnSave.Enabled = true;
 
-            txtAppID.Clear();
+            txtAppID.Clear();//Clear textboxes
             cmbDocID.ResetText();
             cmbPatID.ResetText();
             cmbTime.ResetText();
@@ -126,7 +126,7 @@ namespace surgerySystem
 
             else if (date.ToString("dddd") == "Saturday" || date.ToString("dddd") == "Sunday")
             {
-                MessageBox.Show("Please select a day between Monday and Friday");
+                MessageBox.Show("Please select a day between Monday and Friday");//Prevents user from booking an appointment on a Saturday or Sunday
             }
 
             else
@@ -137,11 +137,11 @@ namespace surgerySystem
                 OneRecord[2] = cmbPatID.Text;
                 OneRecord[3] = dtpDate.Text;
                 OneRecord[4] = cmbTime.Text;
-                OneRecord[5] = "False";
+                OneRecord[5] = "False";//Sets arrived as False
 
                 dsDatabase.Tables["tblAppointment"].Rows.Add(OneRecord);
 
-                System.Data.SqlClient.SqlCommandBuilder myUpdateDB;
+                System.Data.SqlClient.SqlCommandBuilder myUpdateDB;//Establish connection
                 myUpdateDB = new System.Data.SqlClient.SqlCommandBuilder(daGetData);
                 myUpdateDB.DataAdapter.Update(dsDatabase.Tables["tblAppointment"]);
 
@@ -151,7 +151,7 @@ namespace surgerySystem
                 cmbPatID.ResetText();
                 cmbTime.ResetText();
 
-                MessageBox.Show("Appointment Added");
+                MessageBox.Show("Appointment Added");//Confirm to user the add was successful
 
                 btnSave.Enabled = false;
                 btnUpdate.Enabled = true;
@@ -164,7 +164,7 @@ namespace surgerySystem
 
             if (date.ToString("dddd") == "Saturday" || date.ToString("dddd") == "Sunday")
             {
-                MessageBox.Show("Please select a day between Monday and Friday");
+                MessageBox.Show("Please select a day between Monday and Friday");//Checks to see if the date selected is a Saturday or Sunday
             }
             else
             {
@@ -176,8 +176,10 @@ namespace surgerySystem
                 cmUpdate.Connection = mySQLCon;
                 cmUpdate.CommandType = CommandType.Text;
                 cmUpdate.CommandText = "Update tblAppointment set doctorID =' " + cmbDocID.Text + "', date = '" + dtpDate.Value.Date.ToString("yyyyMMdd") + "', time = '" + cmbTime.Text + "' where appointmentID = '" + txtAppID.Text + "'";
-                //Updates record in seat tables that corresponds to the button that was clicked
+                //Updates record in appointment table that corresponds to the selected appointment ID
                 cmUpdate.ExecuteNonQuery();
+
+                MessageBox.Show("Record updated");//Confirmation to user
             }
         }
 
@@ -191,11 +193,11 @@ namespace surgerySystem
             cmDelete.Connection = mySQLCon;
             cmDelete.CommandType = CommandType.Text;
             cmDelete.CommandText = "DELETE FROM tblAppointment WHERE appointmentID = '" + txtAppID.Text + "'";
-
+            //Delete record from appointment that corresponds to the selected record
             cmDelete.ExecuteNonQuery();
 
             txtAppID.Clear();
-            cmbDocID.ResetText();
+            cmbDocID.ResetText();//Clear textboxes
             cmbPatID.ResetText();
             cmbTime.ResetText();
 
@@ -212,7 +214,7 @@ namespace surgerySystem
             cmArrival.Connection = mySQLCon;
             cmArrival.CommandType = CommandType.Text;
             cmArrival.CommandText = "Update tblAppointment set arrived = 'True' where appointmentID = '" + txtAppID.Text + "'";
-
+            //Set arrived to true for the selected appointment
             cmArrival.ExecuteNonQuery();
 
             MessageBox.Show("Patient registered as having arrived");
@@ -221,7 +223,7 @@ namespace surgerySystem
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmReception rec = new frmReception();
+            frmReception rec = new frmReception();//Close this form and open the reception form
             rec.Show();
         }
     }

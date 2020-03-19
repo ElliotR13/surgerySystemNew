@@ -19,20 +19,20 @@ namespace surgerySystem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide();//Close this form and open login form
             frmLogin login = new frmLogin();
             login.Show();
         }
 
         private void btnApps_Click(object sender, EventArgs e)
         {
-            frmConsult con = new frmConsult();
+            frmConsult con = new frmConsult();//Open Consult form
             con.Show();
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            frmDocReport doc = new frmDocReport();
+            frmDocReport doc = new frmDocReport();//Open DocReport form
             doc.Show();
         }
     }

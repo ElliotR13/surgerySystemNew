@@ -15,9 +15,9 @@ namespace surgerySystem
     public partial class frmPresc : Form
     {
         int line = 1;
-       // DataSet dsDatabase;
-        //System.Data.SqlClient.SqlDataAdapter daGetData;
-       // public int whichRec = 0;
+        DataSet dsDatabase, dsDatabase2;
+        System.Data.SqlClient.SqlDataAdapter daGetData, daGetData2;
+        public int whichRec = 0;
         public frmPresc()
         {
             InitializeComponent();
@@ -30,29 +30,40 @@ namespace surgerySystem
             // TODO: This line of code loads data into the 'surgeryDBDataSet2.tblAppointment' table. You can move, or remove it, as needed.
             this.tblAppointmentTableAdapter.Fill(this.surgeryDBDataSet2.tblAppointment);
 
-           /* string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
-            SqlConnection mySQLCon = new SqlConnection(myCon);
-            mySQLCon.Open();
+             string myCon = ConfigurationManager.ConnectionStrings["SurgeryConnString"].ConnectionString;
+             SqlConnection mySQLCon = new SqlConnection(myCon);
+             mySQLCon.Open();
 
-            dsDatabase = new DataSet();
+             dsDatabase = new DataSet();
 
-            String sqlGetWhat;
-            sqlGetWhat = "SELECT * From tblPrescription";//Selects all records
+             String sqlGetWhat;
+             sqlGetWhat = "SELECT * From tblPrescription";//Selects all records
 
-            daGetData = new System.Data.SqlClient.SqlDataAdapter(sqlGetWhat, myCon);
+             daGetData = new System.Data.SqlClient.SqlDataAdapter(sqlGetWhat, myCon);
 
-            daGetData.Fill(dsDatabase, "tblPrescription");
-            MoveRecords();*/
+             daGetData.Fill(dsDatabase, "tblPrescription");
+             MoveRecords();
+
+            dsDatabase2 = new DataSet();
+
+            String sqlGetWhat2;
+            sqlGetWhat2 = "SELECT * From tblPrescLine";//Selects all records
+
+            daGetData2 = new System.Data.SqlClient.SqlDataAdapter(sqlGetWhat2, myCon);
+
+            daGetData2.Fill(dsDatabase2, "tblPrescLine");
+            MoveRecords2();
+
         }
 
         private void MoveRecords()
         {
-            //DataRow OneRecord = dsDatabase.Tables["tblPrescription"].Rows[whichRec];
+            DataRow OneRecord = dsDatabase.Tables["tblPrescription"].Rows[whichRec];
         }
 
         private void MoveRecords2()
         {
-            //DataRow OneRecord = dsDatabase.Tables["tblPrescLine"].Rows[whichRec];
+            DataRow OneRecord2 = dsDatabase2.Tables["tblPrescLine"].Rows[whichRec];
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -67,16 +78,24 @@ namespace surgerySystem
                 SqlConnection mySQLCon = new SqlConnection(myCon);
                 mySQLCon.Open();
 
-                SqlCommand cmUpdate = new SqlCommand();
-                cmUpdate.Connection = mySQLCon;
-                cmUpdate.CommandType = CommandType.Text;
-                cmUpdate.CommandText = "INSERT INTO tblPrescription set appointmentID =' " + cmbAppID.Text + "', diagnosis = '" + txtDiag.Text + "', treatment = '" + txtTreat.Text + "'";
-                //Updates record in seat tables that corresponds to the button that was clicked
-                cmUpdate.ExecuteNonQuery();
+                DataRow OneRecord = dsDatabase.Tables["tblPrescription"].NewRow();
 
-                cmbAppID.ResetText();
+                OneRecord[1] = cmbAppID.Text;//Adds new record, saves data using data from textboxes
+                OneRecord[2] = txtDiag.Text;
+                OneRecord[3] = txtTreat.Text;
+
+                dsDatabase.Tables["tblPrescription"].Rows.Add(OneRecord);
+
+                System.Data.SqlClient.SqlCommandBuilder myUpdateDB;//Establish connection
+                myUpdateDB = new System.Data.SqlClient.SqlCommandBuilder(daGetData);
+                myUpdateDB.DataAdapter.Update(dsDatabase.Tables["tblPrescription"]);
+
+                MoveRecords();
+
+                cmbAppID.ResetText();//Clear textboxes and confirm update
                 txtDiag.Clear();
                 txtTreat.Clear();
+
                 MessageBox.Show("Prescription updated");
             }
         }
@@ -93,22 +112,29 @@ namespace surgerySystem
                 SqlConnection mySQLCon = new SqlConnection(myCon);
                 mySQLCon.Open();
 
-                SqlCommand cmUpdate = new SqlCommand();
-                cmUpdate.Connection = mySQLCon;
-                cmUpdate.CommandType = CommandType.Text;
-                cmUpdate.CommandText = "INSERT INTO tblPrescLine set prescriptionID =' " + cmbPresc.Text + "', drugs = '" + txtDiag.Text + "', prescriptionLine = '" + line + "'";
-                //Updates record in seat tables that corresponds to the button that was clicked
-                cmUpdate.ExecuteNonQuery();
+                DataRow OneRecord2 = dsDatabase2.Tables["tblPrescLine"].NewRow();
 
-                MessageBox.Show("Drug added");
+                OneRecord2[0] = cmbPresc.Text;//Adds new record, saves data using data from textboxes
+                OneRecord2[1] = line;
+                OneRecord2[2] = txtDrug.Text;
+
+                dsDatabase2.Tables["tblPrescLine"].Rows.Add(OneRecord2);
+
+                System.Data.SqlClient.SqlCommandBuilder myUpdateDB;//Establish connection
+                myUpdateDB = new System.Data.SqlClient.SqlCommandBuilder(daGetData2);
+                myUpdateDB.DataAdapter.Update(dsDatabase2.Tables["tblPrescLine"]);
+
+                MoveRecords2();
+
+                MessageBox.Show("Drug added");//Confirm message, and clear textbox
                 txtDrug.Clear();
-                line++;
+                line++;//Adds one to line, so next drug is one more than the previous
             }
         }
 
         private void cmbPresc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            line = 1;
+            line = 1;//If a new ID is selected change line back to 1
         }
 
         private void btnBack_Click(object sender, EventArgs e)

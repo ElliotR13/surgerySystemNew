@@ -25,7 +25,7 @@ namespace surgerySystem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide();//Close form and open Login form
             frmLogin login = new frmLogin();
             login.Show();
         }
@@ -78,7 +78,7 @@ namespace surgerySystem
 
                 MoveRecords();
 
-                txtFirst.Clear();
+                txtFirst.Clear();//Clears all textboxes and shows a message to confirm the add
                 txtSurname.Clear();
                 txtAddress.Clear();
                 txtPCode.Clear();
@@ -92,19 +92,19 @@ namespace surgerySystem
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            frmDetails details = new frmDetails();
+            frmDetails details = new frmDetails();//Open details form
             details.Show();
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            frmDocReport doc = new frmDocReport();
+            frmDocReport doc = new frmDocReport();//Open report form
             doc.Show();
         }
 
         private void btnApp_Click(object sender, EventArgs e)
         {
-            frmAppointment app = new frmAppointment();
+            frmAppointment app = new frmAppointment();//Open appointment form
             app.Show();
         }
     }

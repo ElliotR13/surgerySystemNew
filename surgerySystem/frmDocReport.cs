@@ -23,7 +23,7 @@ namespace surgerySystem
         {
             if (cmbID.Text == "")
             {
-                MessageBox.Show("Please select an ID");
+                MessageBox.Show("Please select an ID");//Ensures an ID is selected
             }
 
             else
@@ -39,7 +39,7 @@ namespace surgerySystem
                 cmApps.CommandType = CommandType.Text;
                 cmApps.CommandText = "Select * from tblAppointment where doctorID = " + cmbID.Text;
                 SqlDataAdapter daApps = new SqlDataAdapter(cmApps);
-
+                //Select all appointments for a certain doctor
                 daApps.Fill(dsApps);
                 mySQLCon.Close();
 

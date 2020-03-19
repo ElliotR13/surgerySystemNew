@@ -241,7 +241,6 @@
             // 
             this.txtNotes.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNotes.Location = new System.Drawing.Point(22, 447);
-            this.txtNotes.MaxLength = 8;
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(439, 131);
@@ -263,7 +262,7 @@
             this.btnPresc.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPresc.Location = new System.Drawing.Point(748, 357);
             this.btnPresc.Name = "btnPresc";
-            this.btnPresc.Size = new System.Drawing.Size(127, 56);
+            this.btnPresc.Size = new System.Drawing.Size(140, 56);
             this.btnPresc.TabIndex = 82;
             this.btnPresc.Text = "Create Prescription";
             this.btnPresc.UseVisualStyleBackColor = true;

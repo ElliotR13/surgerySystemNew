@@ -43,7 +43,7 @@ namespace surgerySystem
             dsDatabase = new DataSet();
 
             String sqlGetWhat;
-            sqlGetWhat = "SELECT * From tblAppointment";//Selects all records from Patient table
+            sqlGetWhat = "SELECT * From tblAppointment";//Selects all records from appointment table
 
             daGetData = new System.Data.SqlClient.SqlDataAdapter(sqlGetWhat, myCon);
 
@@ -96,10 +96,10 @@ namespace surgerySystem
             cmDelete.Connection = mySQLCon;
             cmDelete.CommandType = CommandType.Text;
             cmDelete.CommandText = "DELETE FROM tblAppointment WHERE appointmentID = '" + txtAppID.Text + "'";
-
+            //Delete appointment that corresponds to the selected appointment ID
             cmDelete.ExecuteNonQuery();
 
-            txtAppID.Clear();
+            txtAppID.Clear();//Clear textboxes
             cmbDocID.ResetText();
             cmbPatID.ResetText();
             cmbTime.ResetText();
@@ -117,7 +117,7 @@ namespace surgerySystem
             cmArrival.Connection = mySQLCon;
             cmArrival.CommandType = CommandType.Text;
             cmArrival.CommandText = "Update tblAppointment set arrived = 'True' where appointmentID = '" + txtAppID.Text + "'";
-
+            //Set arrived to True for the selected appointment 
             cmArrival.ExecuteNonQuery();
 
             MessageBox.Show("Patient registered as having arrived");
@@ -127,7 +127,7 @@ namespace surgerySystem
         {
             if (txtNotes.Text == "")
             {
-                MessageBox.Show("Please enter text before attempting to update");
+                MessageBox.Show("Please enter text before attempting to update");//Ensures no blank data is saved
             }
             else
             {
@@ -139,22 +139,22 @@ namespace surgerySystem
                 cmNotes.Connection = mySQLCon;
                 cmNotes.CommandType = CommandType.Text;
                 cmNotes.CommandText = "Update tblPatient set notes = '" + txtNotes.Text + "' where patientID = '" + cmbPatID.Text + "'";
-
+                //Updates patient notes based on selected ID
                 cmNotes.ExecuteNonQuery();
 
                 MessageBox.Show("Patient notes updated");
-                txtNotes.Clear();
+                txtNotes.Clear();//Confirms the update and clears the textbox
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();//Close form
         }
 
         private void btnPresc_Click(object sender, EventArgs e)
         {
-            frmPresc presc = new frmPresc();
+            frmPresc presc = new frmPresc();//Open the prescription form
             presc.Show();
         }
     }
