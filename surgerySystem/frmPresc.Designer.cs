@@ -46,27 +46,28 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbPresc = new System.Windows.Forms.ComboBox();
-            this.surgeryDBDataSet3 = new surgerySystem.surgeryDBDataSet3();
             this.tblPrescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.surgeryDBDataSet3 = new surgerySystem.surgeryDBDataSet3();
             this.tblPrescriptionTableAdapter = new surgerySystem.surgeryDBDataSet3TableAdapters.tblPrescriptionTableAdapter();
             this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblAppointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnUpdate.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(262, 348);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(151, 56);
             this.btnUpdate.TabIndex = 67;
             this.btnUpdate.Text = "Update Prescription";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label5
@@ -173,13 +174,14 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAdd.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(559, 348);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(151, 56);
             this.btnAdd.TabIndex = 72;
             this.btnAdd.Text = "Add Drugs";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label3
@@ -204,15 +206,15 @@
             this.cmbPresc.TabIndex = 73;
             this.cmbPresc.SelectedIndexChanged += new System.EventHandler(this.cmbPresc_SelectedIndexChanged);
             // 
-            // surgeryDBDataSet3
-            // 
-            this.surgeryDBDataSet3.DataSetName = "surgeryDBDataSet3";
-            this.surgeryDBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tblPrescriptionBindingSource
             // 
             this.tblPrescriptionBindingSource.DataMember = "tblPrescription";
             this.tblPrescriptionBindingSource.DataSource = this.surgeryDBDataSet3;
+            // 
+            // surgeryDBDataSet3
+            // 
+            this.surgeryDBDataSet3.DataSetName = "surgeryDBDataSet3";
+            this.surgeryDBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblPrescriptionTableAdapter
             // 
@@ -220,13 +222,14 @@
             // 
             // btnBack
             // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnBack.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(12, 382);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(127, 56);
             this.btnBack.TabIndex = 75;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmPresc
@@ -254,8 +257,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surgeryDBDataSet3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

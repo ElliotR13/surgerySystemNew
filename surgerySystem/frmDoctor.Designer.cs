@@ -35,34 +35,38 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLogout.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Location = new System.Drawing.Point(434, 417);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(132, 66);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Log Out";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnApps
             // 
+            this.btnApps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnApps.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnApps.Location = new System.Drawing.Point(65, 99);
             this.btnApps.Name = "btnApps";
             this.btnApps.Size = new System.Drawing.Size(157, 58);
             this.btnApps.TabIndex = 19;
             this.btnApps.Text = "Appointments";
-            this.btnApps.UseVisualStyleBackColor = true;
+            this.btnApps.UseVisualStyleBackColor = false;
             this.btnApps.Click += new System.EventHandler(this.btnApps_Click);
             // 
             // btnReport
             // 
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnReport.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.Location = new System.Drawing.Point(332, 99);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(157, 58);
             this.btnReport.TabIndex = 77;
             this.btnReport.Text = "Run Report";
-            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // frmDoctor
